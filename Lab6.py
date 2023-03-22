@@ -1,31 +1,30 @@
-#Lab 6
-#Cayden Couch and Deep A.
+def encode(password):
+    newPass = ""
+    for digit in password:
+        newPass += str((int(digit) + 3))
+    return newPass
 
-
-def encode(encoded_password):
-    password = input("Please enter your password to encode: ")
-    encoded_password = ""
-    for i in password:
-        encoded_num = (int(i) + 3) % 10
-        encoded_password += str(encoded_num)
-    print("Your password has been encoded and stored!")
-
+def decode(password):
+    newPass = ""
+    for digit in password:
+        newPass += str((int(digit) - 3))
+    return newPass
 
 def main():
-    encoded_password = ""
-    run = True
-    while run:
-        print("Menu")
-        print("-------------")
+    menu = True
+    while menu:
         print("1. Encode")
         print("2. Decode")
         print("3. Quit")
-        option = input("Please enter an option: ")
-        if option == 1:
-            encode(encoded_password)
-        elif option == 2:
-            pass
-        else:
-            run = False
+        num = int(input())
+        if num == 1:
+            password = input("Enter an 8 digit password of only integers.")
+            print("You password has been encoded and stored!")
+        elif num == 2:
+            depassword = decode(password)
+            print("The encoded password is ", password, ", and the orignal password is ", depassword,"." )
+        else: 
+            break
 
-
+if __name__ =="__main__":
+    main()
